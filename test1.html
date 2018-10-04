@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.avatar {
+    vertical-align: middle;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+    {box-sizing: border-box} 
+
+/* Container needed to position the overlay. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 50%;
+  max-width:100px;
+}
+
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.container:hover .overlay {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<h2>Avatar Images</h2>
+<div class="container" >
+<img src="physician.jpg" alt="Avatar" class="avatar" border="2">
+<div class="overlay">physician</div>
+<img src="tutor.jpg" alt="Avatar" class="avatar" border="2">
+<img src="designer.png" alt="Avatar" class="avatar" border="2">
+<img src="counsellor.jpg" alt="Avatar" class="avatar" border="2">
+<img src="gym.jpg" alt="Avatar" class="avatar" border="2">
+</div>
+</body>
+</html>

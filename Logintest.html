@@ -1,0 +1,215 @@
+<html>
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDXognbDWjU7jZmc5-ezO54swxCZ-LYpb0",
+    authDomain: "webro-42165.firebaseapp.com",
+    databaseURL: "https://webro-42165.firebaseio.com",
+    projectId: "webro-42165",
+    storageBucket: "webro-42165.appspot.com",
+    messagingSenderId: "329863637216"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
+
+<head>
+
+<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style>
+    /* Remove the navbar's default rounded borders and increase the bottom margin */ 
+    .navbar {
+      margin-bottom: 0px;
+      border-radius: 0;
+    }
+    
+    /* Remove the jumbotron's default bottom margin */ 
+     .jumbotron {
+    
+      margin-bottom: 0;
+      padding:00000px;
+    }
+   
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+<head>
+  
+    <style>
+        body  {
+            background-image: "backg.jpeg";
+            background-color: #cccccc;
+        }
+        </style>
+
+<body>
+<script type="text/javascript">
+var firebase = require('firebase');
+var firebaseui = require('firebaseui');
+</script>
+
+
+
+<script type="text/javascript">
+ui.start('#firebaseui-auth-container', {
+  signInOptions: [
+    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+     firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ],
+  // Other config options...
+});
+</script>
+
+
+
+<script>
+// Initialize the FirebaseUI Widget using Firebase.
+var ui = new firebaseui.auth.AuthUI(firebase.auth());
+</script>
+
+
+
+<!-- The surrounding HTML is left untouched by FirebaseUI.
+     Your app may use that space for branding, controls and other customizations.-->
+
+<div class="jumbotron">
+    <div class="container text-center">
+      <h1>A Market Place For Services</h1>      
+    <!--  <p>Mission, Vission & Values</p>-->
+    </div>
+  </div>
+  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Logo</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#">Deals</a></li>
+          <li><a href="#">ABOUT</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Register</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<h2>   </h2>>
+
+
+
+<h3  ></h3>
+
+<div id="firebaseui-auth-container"></div>
+<!--<div id="loader">Loading...</div>-->
+
+<script>
+var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById('loader').style.display = 'none';
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: 'popup',
+  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ],
+  // Terms of service url.
+  tosUrl: '<your-tos-url>',
+  // Privacy policy url.
+  privacyPolicyUrl: '<your-privacy-policy-url>'
+};
+
+</script>
+
+<script>
+// The start method will wait until the DOM is loaded.
+ui.start('#firebaseui-auth-container', uiConfig);
+
+</script>
+
+
+<script>
+// Temp variable to hold the anonymous user data if needed.
+var data = null;
+// Hold a reference to the anonymous current user.
+var anonymousUser = firebase.auth().currentUser;
+ui.start('#firebaseui-auth-container', {
+  // Whether to upgrade anonymous users should be explicitly provided.
+  // The user must already be signed in anonymously before FirebaseUI is
+  // rendered.
+  autoUpgradeAnonymousUsers: true,
+  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+  ],
+  callbacks: {
+    // signInFailure callback must be provided to handle merge conflicts which
+    // occur when an existing credential is linked to an anonymous user.
+    signInFailure: function(error) {
+      // For merge conflicts, the error.code will be
+      // 'firebaseui/anonymous-upgrade-merge-conflict'.
+      if (error.code != 'firebaseui/anonymous-upgrade-merge-conflict') {
+        return Promise.resolve();
+      }
+      // The credential the user tried to sign in with.
+      var cred = error.credential;
+      // Copy data from anonymous user to permanent user and delete anonymous
+      // user.
+      // ...
+      // Finish sign-in after data is copied.
+      return firebase.auth().signInWithCredential(cred);
+    }
+  }
+});
+
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
